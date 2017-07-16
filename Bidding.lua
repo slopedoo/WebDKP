@@ -271,6 +271,8 @@ end
 -- ================================
 -- Handles chat messages directed towards bidding. This includes
 -- placing a bid and remotly starting / stopping a bid.
+-- 
+-- Modifications made by Actar for <SIN> guild with fixed DKP costs
 -- ================================
 function WebDKP_Bid_Event()
 	local name = arg2;
@@ -308,7 +310,8 @@ function WebDKP_Bid_Event()
 				if (cost == nil) then
 					bidAmount = 0;
 				else
-					bidAmount = math.floor(cost/2);
+					-- no dkp charged for offspec
+					bidAmount = 0;
 				end
 				WebDKP_Bid_HandleBid(name,bidAmount);
 				WebDKP_SendWhisper(name,"Offspec bid for "..bidAmount.." dkp is accepted!");
