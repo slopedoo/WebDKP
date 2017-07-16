@@ -31,7 +31,7 @@ To start dkp bidding
 # MODIFICATIONS
 
   - Addon has been modified to accommodate fixed DKP costs. Any item specified in the WebDKP loot table will auto-fill when bidding starts.
-  - To be elegible for loot, members will whisper ?main or ?off for mainspec or offspec respectively. Mainspec bid will be the price specified in WebDKP loto table. Offspec item is free.
+  - To be elegible for loot, members will whisper ?main or ?off for mainspec or offspec respectively. Mainspec bid will be the price specified in WebDKP loot table. Offspec item is free.
   - Auto-award for bosskills has also been reduced to 2.
   - Use "?" prefix instead of "!", which is reserved for server commands on Elysium.
   - DKP listing has been disabled due to the spam-filter on Elysium.
@@ -49,4 +49,5 @@ To start dkp bidding
   Commands that you can be whispered:
   
   ?help - sends them a list of commands
+  
   ?dkp  - sends the person who whispered you their current dkp
