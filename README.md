@@ -12,7 +12,7 @@ which can then be uploaded by the guild master to the
 website using the SyncTool. 
 
 
-#HOW TO USE:
+# HOW TO USE:
 
 type /webdkp
 
@@ -28,7 +28,7 @@ or shift+click an item with the bidding window open
 
 To start dkp bidding
 
-#MODIFICATIONS
+# MODIFICATIONS
 
   - Addon has been modified to accommodate fixed DKP costs. Any item specified in the WebDKP loot table will auto-fill when bidding starts.
   - To be elegible for loot, members will whisper ?main or ?off for mainspec or offspec respectively. Mainspec bid will be the price specified in WebDKP loto table. Offspec item is free.
@@ -36,7 +36,7 @@ To start dkp bidding
   - Use "?" prefix instead of "!", which is reserved for server commands on Elysium.
   - DKP listing has been disabled due to the spam-filter on Elysium.
 
-#OLD FEATURES
+# OLD FEATURES
 
 - Sync tool that uploads syncs your dkp addon with the website
   Requires .Net 2.0 Framework:
