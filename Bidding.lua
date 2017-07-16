@@ -379,7 +379,7 @@ function WebDKP_Bid_StartBid(item, time)
 
 	WebDKP_BidFrameItem:SetText(item);
 	WebDKP_BidFrameTime:SetText(time);
-	cost = WebDKP_AutoFillCost_2(itemName);
+	cost = WebDKP_AutoFill_SIN(itemName);
 	WebDKP_BidFrameCustomCost:SetText(cost);
 	
 	WebDKP_AnnounceBidStart(item, time);

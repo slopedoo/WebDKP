@@ -135,9 +135,9 @@ function WebDKP_AutoFillCost()
 end
 
 -- ================================
--- Modified autofill function by Actar for <SIN> guild to accommodate fixed item costs
+-- New autofill function by Actar for <SIN> guild to accommodate fixed item costs
 -- ================================
-function WebDKP_AutoFillCost_2(item)
+function WebDKP_AutoFill_SIN(item)
 	if ( WebDKP_Options["AutofillEnabled"] == 0 ) then
 		return "0";
 	end
