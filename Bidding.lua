@@ -588,10 +588,12 @@ function WebDKP_Bid_OnUpdate(elapsed)
 		WebDKP_BidFrame_Countdown:SetText("Time Left: "..WebDKP_bidCountdown.."s");
 		
 		
-		if ( WebDKP_bidCountdown == 30 ) then				-- 30 seconds left
+		if ( WebDKP_bidCountdown == 45 ) then				-- 45 seconds left
+			local _,_,link = WebDKP_GetItemInfo(WebDKP_bidItem); 
+			WebDKP_SendAnnouncementDefault("45 seconds remain for bidding on "..link.."!");
+		elseif ( WebDKP_bidCountdown == 30 ) then				-- 30 seconds left
 			local _,_,link = WebDKP_GetItemInfo(WebDKP_bidItem); 
 			WebDKP_SendAnnouncementDefault("30 seconds remain for bidding on "..link.."!");
-		
 		elseif ( WebDKP_bidCountdown == 10 ) then				-- 10 seconds left
 			local _,_,link = WebDKP_GetItemInfo(WebDKP_bidItem); 
 			WebDKP_SendAnnouncementDefault("10 seconds remain for bidding on "..link.."!");
