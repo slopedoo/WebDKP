@@ -145,7 +145,7 @@ NAXX = Set {"Anub'Rekhan", "Grand Widow Faerlina", "Maexxna",
         "Patchwerk", "Grobbulus", "Gluth", "Thaddius",
     	"Sapphiron", "Kel'Thuzad"}
 
-test_loc = Set {"Elder Mottled Boar"}
+-- test_loc = Set {"Elder Mottled Boar"}
 
 BossLocation = Set {"Durotar", "The Molten Core", "Blackwing Lair", "Onyxia's Lair", "Ahn'Qiraj", "Temple of Ahn'Qiraj", "Naxxramas", "The Arachnid Quarter", "The Plague Quarter", "The Military Quarter", "The Construct Quarter", "Frostwyrm Lair"}
 
