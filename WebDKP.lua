@@ -1,6 +1,6 @@
 ﻿-- Sandstens fork
 SandstensForkVersion = "Version 2017-06-11"
-AutoInvitePlayers = {"Sandsten","Bernsten","Smygsten","Stenskott","Bergsten","Kylsten","Gravsten","Sandybank","Kalven","Ibanezer","Trairg","Arkemea","Tentto","Leshaniqua","Gruuz","Looz","Drooz","Larona","Pricey","Myname","Orthoron","Valkoron","Thralloron","Kalvoron","Kimono","Awsomenews","Evilmojo","Hurmelhej","Cadux","Cadex","Roxigar","Hellcow","Nakz","Kruzz","Fellsten"}
+-- AutoInvitePlayers = {}
 --
 --
 ------------------------------------------------------------------------

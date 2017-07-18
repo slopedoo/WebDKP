@@ -19,7 +19,7 @@ WebDKP_DkpAwardAll =		"WebDKP: $dkp dkp awarded to all players: $reason.";
 
 WebDKP_DkpAwardSome =		"WebDKP: $dkp dkp awarded to following players: $reason.";
 
-WebDKP_BidStart =			"Bid round has started for $item!"..
+WebDKP_BidStart =			"Bid round has started for $item! $cost DKP"..
 							"\nTo bid, whisper Actar ?main for mainspec or ?off for offspec.";
 
 WebDKP_BidEnd =				"WebDKP: Bid round is finished for $item";
@@ -120,9 +120,9 @@ function WebDKP_AnnounceBidStart(item, time)
 	else
 		time = "("..time.."s)";
 	end
-	
+	--local itemCost = WebDKP_BidFrameCustomCost:GetText();
 	local toSay =	string.gsub(WebDKP_BidStart, "$item", item);
-	toSay =	string.gsub(toSay, "$time", time);
+	toSay = string.gsub(toSay, "$cost", cost);
 	WebDKP_SendAnnouncement(toSay,tellLocation);
 end
 
