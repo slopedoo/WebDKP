@@ -62,21 +62,10 @@ function WebDKP_WhisperDKP_Event()
 				WebDKP_SendWhisper(name,"Current DKP - "..dkp); 
 				--WebDKP_SendWhisper(name,"Tier - "..tier); 
 			end	
-		elseif(string.find(string.lower(trigger), "?listall")==1 ) then -- THEY WANT _ALL_ THE DKP OF EVERYONE
-			local filter = WebDKP_GetWhisperFiltersFromMessage(trigger);
-			WebDKP_SendWhisper(name,"DKP List");
-			WebDKP_SendWhisper(name,"DKP - Tier Name(Class) ");
-			WebDKP_SendWhisper(name,"==============================");
-			WebDKP_WhisperSortedList(name,false,filter);
-		elseif(string.find(string.lower(trigger), "?list")==1 ) then  -- THEY WANT THE DKP OF PEOPLE IN THE CURRENT GROUP
-			local filter = WebDKP_GetWhisperFiltersFromMessage(trigger);
-			WebDKP_SendWhisper(name,"DKP List");
-			WebDKP_SendWhisper(name,"DKP - Tier Name(Class) ");
-			WebDKP_SendWhisper(name,"==============================");
-			WebDKP_WhisperSortedList(name,true,filter);
 		elseif(trigger == "?help" ) then		-- THEY WANT HELP / LIST OF COMMANDS
-			WebDKP_SendWhisper(name,"Available Commands:"); 
 			WebDKP_SendWhisper(name,"?dkp - Get your current dkp");
+			WebDKP_SendWhisper(name,"To bid, whisper ?main for mainspec or ?off for offspec");
+			WebDKP_SendWhisper(name,"(that's <QUESTIONMARK>main with no spaces");
 		end
 	end
 end
@@ -135,7 +124,6 @@ function WebDKP_IsWebDKPWhisper(name, trigger)
 	end
 	if ( string.find(string.lower(trigger), "?dkp" )==1 or
 		 string.find(string.lower(trigger), "?help")==1 or
-		 string.find(string.lower(trigger), "?list")==1 or
 		 string.find(string.lower(trigger), "?startbid")==1
 		) then
         return true

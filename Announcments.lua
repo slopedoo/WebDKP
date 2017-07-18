@@ -11,7 +11,7 @@
 -- awards you just need to edit these strings. 
 -- Do display a new line in your message use \n. 
 
-WebDKP_ItemAward =			"WebDKP: $player has won $item for: $cost dkp.";
+WebDKP_ItemAward =			"--$player has won $item for $cost dkp--";
 
 WebDKP_ItemAwardZeroSum =	"WebDKP: $dkp awarded to all players for ZeroSum";
 
@@ -19,10 +19,10 @@ WebDKP_DkpAwardAll =		"WebDKP: $dkp dkp awarded to all players: $reason.";
 
 WebDKP_DkpAwardSome =		"WebDKP: $dkp dkp awarded to following players: $reason.";
 
-WebDKP_BidStart =			"Bid round has started for $item! $cost DKP"..
-							"\nTo bid, whisper Actar ?main for mainspec or ?off for offspec.";
+WebDKP_BidStart =			"--Bid round has started for $item: $cost dkp--";
+WebDKP_BidInfo =			"--Whisper Actar ?main for mainspec or ?off for offspec--";
 
-WebDKP_BidEnd =				"WebDKP: Bid round is finished for $item";
+WebDKP_BidEnd =				"--Round is finished for $item--";
 
 -- ================================
 -- Returns the location where notifications should be sent to. 
@@ -124,6 +124,7 @@ function WebDKP_AnnounceBidStart(item, time)
 	local toSay =	string.gsub(WebDKP_BidStart, "$item", item);
 	toSay = string.gsub(toSay, "$cost", cost);
 	WebDKP_SendAnnouncement(toSay,tellLocation);
+	WebDKP_SendAnnouncement(WebDKP_BidInfo,tellLocation);
 end
 
 -- ================================
