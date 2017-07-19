@@ -439,7 +439,7 @@ function WebDKP_Bosskill_Event()
 			end
 
 			if BossLocation[zoneName] then
-				if (MC[name] or BWL[name] or name == "Onyxia" or AQ[name] or NAXX[name] or test_loc[name])then
+				if (MC[name] or BWL[name] or name == "Onyxia" or AQ[name] or NAXX[name])then
 					WebDKP_Bosskill_Add_DKP();
 					--WebDKP_Bench_Add_DKP();
 					--DEFAULT_CHAT_FRAME:AddMessage("test, ADDING DKP 2 all raid! yey")
