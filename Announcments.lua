@@ -138,6 +138,9 @@ function WebDKP_AnnounceBidEnd(item, name, dkp)
 		name = "noone";
 		dkp = 0;
 	end
+	if(item == nil) then
+		item = "item";
+	end
 	--convert the item to a link
 	--local _,_, link = WebDKP_GetItemInfo(item);
 	local tellLocation = WebDKP_GetTellLocation();

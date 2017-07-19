@@ -278,8 +278,6 @@ function WebDKP_Bid_Event()
 	local name = arg2;
 	local trigger = arg1;
 	if(WebDKP_IsBidChat(name,trigger)) then
-		
-
 
 		--local cmd, subcmd = WebDKP_GetCmd(trigger);
 		local _, cmd = WebDKP_GetCmd(trigger);
@@ -288,16 +286,16 @@ function WebDKP_Bid_Event()
 		-- SOMEONE HAS PLACED A BID
 		if(string.find(string.lower(trigger), "?main")==1 ) then	
 			if(WebDKP_bidInProgress == false) then
-				WebDKP_SendWhisper(name,"There is not a bid session active atm");
+				WebDKP_SendWhisper(name,"There is not a session active atm");
 			elseif(cmd == "") then
 				if (cost == nil) then
 					local bidAmount = 0;
 					WebDKP_Bid_HandleBid(name,bidAmount);
-					WebDKP_SendWhisper(name,"Mainspec bid for "..bidAmount.." dkp is accepted!");
+					WebDKP_SendWhisper(name,"Mainspec for "..bidAmount.." dkp is accepted!");
 				else
 					local bidAmount = cost;
 					WebDKP_Bid_HandleBid(name,bidAmount);
-					WebDKP_SendWhisper(name,"Mainspec bid for "..bidAmount.." dkp is accepted!");
+					WebDKP_SendWhisper(name,"Mainspec for "..bidAmount.." dkp is accepted!");
 				end
 			else
 				WebDKP_SendWhisper(name,"Whisper ?main to bid for main spec.");
@@ -305,7 +303,7 @@ function WebDKP_Bid_Event()
 			
 		elseif(string.find(string.lower(trigger), "?off")==1 ) then	
 			if(WebDKP_bidInProgress == false) then
-				WebDKP_SendWhisper(name,"There is not a bid session active atm");
+				WebDKP_SendWhisper(name,"There is not a session active atm");
 			elseif(cmd == "") then
 				if (cost == nil) then
 					bidAmount = 0;
@@ -314,7 +312,7 @@ function WebDKP_Bid_Event()
 					bidAmount = 0;
 				end
 				WebDKP_Bid_HandleBid(name,bidAmount);
-				WebDKP_SendWhisper(name,"Offspec bid for "..bidAmount.." dkp is accepted!");
+				WebDKP_SendWhisper(name,"Offspec for "..bidAmount.." dkp is accepted!");
 			else
 				WebDKP_SendWhisper(name,"Whisper ?off to bid for off spec.");
 			end	
@@ -336,11 +334,19 @@ function WebDKP_Bid_Event()
 		-- THEY WANT THE BIDDING TO STOP	
 		elseif(string.find(string.lower(trigger), "?stopbid")==1 ) then
 			if (WebDKP_bidInProgress == false ) then
-				WebDKP_SendWhisper(name,"There are no active bid session to abort");
+				WebDKP_SendWhisper(name,"There is no active bid session to abort");
 			else
 				WebDKP_Bid_StopBid();
 				WebDKP_BidFrameBidButton:SetText("Start bidding!");
 			end
+		
+		-- THEY WANT TO CANCEL THEIR BID (WORK IN PROGRESS)
+		-- elseif(string.find(string.lower(trigger), "?cancelbid")==1 ) then
+			-- if (WebDKP_bidInProgress == false ) then
+				-- WebDKP_SendWhisper(name,"There is no active bid session");
+			-- else
+				-- WebDKP_Bid_Cancel(name);
+			-- end
 		end
 	end
 end
@@ -353,6 +359,7 @@ function WebDKP_IsBidChat(name, trigger)
 	if ( string.find(string.lower(trigger), "?main" )== 1 or
 		 string.find(string.lower(trigger), "?off" )== 1 or
 		 string.find(string.lower(trigger), "?startbid" ) == 1 or 
+		 --string.find(string.lower(trigger), "?cancelbid" ) == 1 or 
 		 string.find(string.lower(trigger), "?stopbid" ) == 1
 		) then
         return true
@@ -379,7 +386,11 @@ function WebDKP_Bid_StartBid(item, time)
 
 	WebDKP_BidFrameItem:SetText(item);
 	WebDKP_BidFrameTime:SetText(time);
-	cost = WebDKP_AutoFill_SIN(itemName);
+	if (WebDKP_AutoFill_SIN(itemName) ~= nil) then	-- to avoid errors
+		cost = WebDKP_AutoFill_SIN(itemName);
+	else
+		cost = 0;
+	end
 	WebDKP_BidFrameCustomCost:SetText(cost);
 	
 	WebDKP_AnnounceBidStart(item, time);
@@ -449,6 +460,34 @@ function WebDKP_Bid_HandleBid(playerName, bidAmount)
 		WebDKP_Bid_UpdateTable();
 	end
 end
+
+-- ================================
+-- Cancels a bid WORK IN PROGRESS
+-- ================================
+-- function WebDKP_Bid_Cancel(k)
+	-- local i = 0;
+	-- local keys, values = {},{};
+	-- for k,v in pairs(WebDKP_BidList) do
+		-- i = i + 1;
+		-- keys[i] = k;
+		-- values[i] = v;
+	-- end
+	
+	-- while i>0 do
+		-- if keys[i] == k then
+			-- table.remove(keys, i);
+			-- table.remove(values, i);
+			-- break;
+		-- end
+		-- i = i - 1;
+	-- end
+	-- local a = {}
+	-- for i = 1,#keys do
+		-- a[keys[i]] = values[i];
+	-- end
+	-- WebDKP_Bid_UpdateTable();
+-- end
+
 
 -- ================================
 -- Returns the highest bidder and what they bid. 
