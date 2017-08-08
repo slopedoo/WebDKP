@@ -406,9 +406,9 @@ function WebDKP_AddHourly()
 	StaticPopup_Show ("HANDOUT_HOURLY_PROMPT")
 end
 
-function WebDKP_AddEarly()
+function WebDKP_AddEarly() -- READY AND SIGNED UP
 	StaticPopupDialogs["HANDOUT_EARLY_PROMPT"] = {
-		text = "Do you want to award 10 dkp (early dkp)?",
+		text = "Do you want to award 2 dkp (early dkp)?",
 	  	button1 = "Yes",
 	  	button2 = "No",
 	  	OnAccept = function()

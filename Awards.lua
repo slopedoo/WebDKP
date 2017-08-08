@@ -332,11 +332,11 @@ function WebDKP_Bosskill_Add_DKP(text)
 	WebDKP_UpdatePlayersInGroup();
 
 	if (text == "hourly") then
-		reason = "Added 2 dkp (hourly dkp)"
+		reason = "Hourly DKP."
 	elseif (text == "boss") then
 		reason = "Bosskill in "..GetZoneText()
 	elseif (text == "early") then
-		reason = "Added 2 dkp (early dkp)";
+		reason = "Ready and signed up.";
 		toAward = 2;
 	end
 
