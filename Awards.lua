@@ -328,7 +328,7 @@ function WebDKP_Bosskill_Add_DKP(text)
 	local tableid = WebDKP_GetTableid();
 	local awardedBy = UnitName("player");
 	local location = GetZoneText();
-	local toAward = 2;
+	local toAward = 1; -- AMOUNT OF DKP TO AWARD FOR BOSSKILL
 	WebDKP_UpdatePlayersInGroup();
 
 	if (text == "hourly") then
@@ -336,8 +336,8 @@ function WebDKP_Bosskill_Add_DKP(text)
 	elseif (text == "boss") then
 		reason = "Bosskill in "..GetZoneText()
 	elseif (text == "early") then
-		reason = "Added 10 dkp (early dkp)";
-		toAward = 10;
+		reason = "Added 2 dkp (early dkp)";
+		toAward = 2;
 	end
 
 	local numPlayers = WebDKP_GetTableSize(WebDKP_PlayersInGroup);
